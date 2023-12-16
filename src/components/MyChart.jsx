@@ -1,7 +1,31 @@
 import React, { useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
 
-const MyChart = ({ data3 }) => {
+const MyChart = ({ data3 =
+  [
+    { x: '2023-11-01', y: 2000 },
+    { x: '2023-11-02', y: 3900 },
+    { x: '2023-11-03', y: 4100 },
+    { x: '2023-11-04', y: 3500 },
+    { x: '2023-11-05', y: 2900 },
+    { x: '2023-11-06', y: 4800 },
+    { x: '2023-11-07', y: 2200 },
+    { x: '2023-11-08', y: 4100 },
+    { x: '2023-11-09', y: 3400 },
+    { x: '2023-11-10', y: 2700 },
+    { x: '2023-11-11', y: 3900 },
+    { x: '2023-11-12', y: 3100 },
+    { x: '2023-11-13', y: 4800 },
+    { x: '2023-11-14', y: 4100 },
+    { x: '2023-11-15', y: 2900 },
+    // { x: '2023-11-16', y: 3700 },
+    // { x: '2023-11-17', y: 4300 },
+    // { x: '2023-11-18', y: 3900 },
+    // { x: '2023-11-19', y: 3300 },
+    // { x: '2023-11-20', y: 2900 },
+    // Add more data points as needed
+  ]
+}) => {
   const chartRef = useRef(null);
 
   useEffect(() => {
@@ -59,7 +83,8 @@ const MyChart = ({ data3 }) => {
           barPercentage: 0.9 // Adjust the width of the bars
         },
         y: {
-          beginAtZero: true,
+          type: 'linear', // Use a linear scale
+          beginAtZero: false, // Allow the scale to adjust based on data values
           grid: {
             display: false
           },
@@ -109,19 +134,8 @@ const MyChart = ({ data3 }) => {
     };
   }, [data3]);
 
-  return <div style={{width:"100%",padding:"1rem",boxShadow:"1px 1px 1px #000"}}>
-    {/* <div style={{display:"flex",flexDirection:"row"}}>
-        <div style={{display:"flex",flexDirection:"row",justifyContent:"space-between",alignItems:"center"}}> 
-            <p style={{fontWeight:"650",fontSize:"0.95rem"}}>Total sales</p>
-            <p style={{color:"#4a4a4a"}}>This month</p>
-        </div>
-        <div style={{display:"flex",flexDirection:"row",justifyContent:"space-between",alignItems:"center"}}>
-            <p style={{fontWeight:"650",fontSize:"1.8rem"}}>$47,791.64</p>
-            <p style={{color:"#4a4a4a"}}>471 orders</p>
-        </div>
-    </div> */}
-    <canvas id="myChart" width="400" height="200" style={{maxWidth:"600px",minHeight:"400px"}}></canvas>
-  </div>
+  return <div><canvas id="myChart" width="400" height="200" style={{maxWidth:"600px",minHeight:"400px"}}></canvas></div>
+  
 };
 
 export default MyChart;

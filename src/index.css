@@ -1,5 +1,14 @@
-*{
+html, body {
   margin: 0;
-  box-sizing: border-box;
   padding: 0;
+  height: 100%;
+}
+body{
+  width: 100vw;
+  max-height: 100vh;
+  font-family: "Inter",-apple-system,BlinkMacSystemFont,"San Francisco","Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+}
+
+#root {
+  height: 100%;
 }

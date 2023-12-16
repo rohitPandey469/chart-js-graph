@@ -1,0 +1,16 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  
+  #root {
+    height: 100%;
+  }
+  .dashed-underline {
+    margin-top: -0.5rem;
+    text-decoration: underline dotted;
+    color: #4a4a4a; /* Specify the desired color using a hex code, RGB value, or color name */
+    margin-bottom: 2rem;
+    font-weight: 550; /* Adjust the value to control the amount of space between text and underline */
+  }

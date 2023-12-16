@@ -1,5 +1,7 @@
 import React from 'react';
 import MyChart from './components/MyChart';
+import Above from './components/Above';
+import "./App.css"
 
 const App = () => {
   const dummyData = [
@@ -28,7 +30,7 @@ const App = () => {
 
   return (
     <div>
-      <MyChart data3={dummyData} />
+      <Above/>
     </div>
   );
 };
