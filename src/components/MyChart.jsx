@@ -3,21 +3,21 @@ import Chart from 'chart.js/auto';
 
 const MyChart = ({ data3 =
   [
-    { x: '2023-11-01', y: 2000 },
-    { x: '2023-11-02', y: 3900 },
-    { x: '2023-11-03', y: 4100 },
-    { x: '2023-11-04', y: 3500 },
-    { x: '2023-11-05', y: 2900 },
-    { x: '2023-11-06', y: 4800 },
-    { x: '2023-11-07', y: 2200 },
-    { x: '2023-11-08', y: 4100 },
-    { x: '2023-11-09', y: 3400 },
-    { x: '2023-11-10', y: 2700 },
-    { x: '2023-11-11', y: 3900 },
-    { x: '2023-11-12', y: 3100 },
-    { x: '2023-11-13', y: 4800 },
-    { x: '2023-11-14', y: 4100 },
-    { x: '2023-11-15', y: 2900 },
+    { x: '2023-11-01', y: 4.5 },
+    { x: '2023-11-02', y: 3.2 },
+    { x: '2023-11-03', y: 3.1 },
+    { x: '2023-11-04', y: 4.0 },
+    { x: '2023-11-05', y: 3.9 },
+    { x: '2023-11-06', y: 2.8 },
+    { x: '2023-11-07', y: 4 },
+    { x: '2023-11-08', y: 5 },
+    { x: '2023-11-09', y: 3.4 },
+    { x: '2023-11-10', y: 4.8 },
+    { x: '2023-11-11', y: 4.2 },
+    { x: '2023-11-12', y: 3.1 },
+    { x: '2023-11-13', y: 3.8 },
+    { x: '2023-11-14', y: 4.0 },
+    { x: '2023-11-15', y: 4.9 },
     // { x: '2023-11-16', y: 3700 },
     // { x: '2023-11-17', y: 4300 },
     // { x: '2023-11-18', y: 3900 },
@@ -67,55 +67,61 @@ const MyChart = ({ data3 =
         barPercentage: 1.0
       }]
     };
-
     const options = {
       scales: {
         x: {
           grid: {
-            color: '#f0f0f0'
+            color: 'transparent', // Set the color of the vertical grid lines to transparent
+            borderColor: 'rgba(0, 0, 0, 0.1)', // Set the color of the horizontal grid lines
+            borderWidth: 1, // Set the width of the horizontal grid lines
           },
           ticks: {
             color: '#333',
             minTicksLimit: 1,
-            maxTicksLimit: 6
+            maxTicksLimit: 6,
+            stepSize: 4,
+            maxRotation: 0,
           },
-          categoryPercentage: 0.8, // Adjust the spacing between bars
-          barPercentage: 0.9 // Adjust the width of the bars
+          categoryPercentage: 0.8,
+          barPercentage: 0.7,
         },
         y: {
-          type: 'linear', // Use a linear scale
-          beginAtZero: false, // Allow the scale to adjust based on data values
+          type: 'linear',
+          beginAtZero: false,
           grid: {
-            display: false
+            color: '#f0f0f0', // Add a light gray color to the horizontal grid lines
           },
           ticks: {
             callback: function (value, index, values) {
-              return '$' + (value / 1000) + 'K';
+              return '$' + (value) + 'K';
             },
-          }
-        }
+            stepSize: 0,
+            maxTicksLimit: 4,
+            max: 4,
+          },
+        },
       },
       responsive: true,
-      maintainAspectRatio: false, // Allow the chart to adjust its size
+      maintainAspectRatio: false,
       tooltips: {
         backgroundColor: 'rgba(0, 161, 159, 1)',
         borderColor: '#fff',
         borderWidth: 2,
         titleFont: {
           size: 16,
-          weight: 'bold'
+          weight: 'bold',
         },
         bodyFont: {
-          size: 14
-        }
+          size: 14,
+        },
       },
       plugins: {
         legend: {
-          display: false, // Set display to false to hide the legend label
+          display: false,
         },
       },
     };
-
+    
     const config = {
       type: 'bar',
       data,
@@ -134,7 +140,7 @@ const MyChart = ({ data3 =
     };
   }, [data3]);
 
-  return <div><canvas id="myChart" width="400" height="200" style={{maxWidth:"600px",minHeight:"400px"}}></canvas></div>
+  return <div style={{marginLeft:"-0.8rem"}}><canvas id="myChart" width="360" height="200" style={{maxWidth:"600px",minHeight:"170px"}}></canvas></div>
   
 };
 
